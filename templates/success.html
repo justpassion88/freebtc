@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Ký Thành Công - Bitcoin Mining Pool</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: #000;
+            color: #00ff00;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(0, 255, 0, 0.1);
+            border: 2px solid #00ff00;
+            border-radius: 15px;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .success-icon {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px #00ff00;
+        }
+
+        .message {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .next-steps {
+            background: rgba(0, 255, 0, 0.1);
+            border: 1px solid #00ff00;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .next-steps h3 {
+            margin-bottom: 15px;
+            color: #f7931a;
+        }
+
+        .next-steps ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .next-steps li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .next-steps li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #f7931a;
+        }
+
+        .action-buttons {
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            margin: 0 10px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #ff6b35, #f7931a);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #00ff00;
+            border: 2px solid #00ff00;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 0 20px rgba(247, 147, 26, 0.6);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .action-buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .btn {
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="success-icon">🎉</div>
+        
+        <div class="header">
+            <h1>Đăng Ký Thành Công!</h1>
+        </div>
+
+        <div class="message">
+            Chúc mừng! Bạn đã được thêm vào danh sách đào Bitcoin thưởng.<br>
+            Chúng tôi sẽ liên hệ với bạn sớm nhất có thể.
+        </div>
+
+        <div class="next-steps">
+            <h3>📋 Các bước tiếp theo:</h3>
+            <ul>
+                <li>Tạo tài khoản Binance nếu chưa có</li>
+                <li>Xác minh tài khoản Binance của bạn</li>
+                <li>Chờ email hướng dẫn từ chúng tôi</li>
+                <li>Tham gia vào hệ thống đào BTC thưởng</li>
+            </ul>
+        </div>
+
+        <div class="action-buttons">
+            <a href="https://www.binance.com" target="_blank" class="btn btn-primary">
+                🚀 Tạo Tài Khoản Binance
+            </a>
+            <a href="/" class="btn btn-secondary">
+                ← Quay Lại Trang Chủ
+            </a>
+        </div>
+    </div>
+</body>
+</html> 
