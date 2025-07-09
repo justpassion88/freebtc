@@ -542,6 +542,8 @@
         initFakeUsers();
         updateMiningStats();
         updateUsersList();
+        // Gọi cập nhật số liệu động liên tục mỗi 2 giây
+        setInterval(updateMiningStats, 2000);
     </script>
 </body>
 </html> 
