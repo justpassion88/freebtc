@@ -143,7 +143,7 @@
             • Sau khi đăng ký, bạn sẽ được thêm vào danh sách đào BTC
         </div>
 
-        <form method="POST" action="#" onsubmit="return handleRegister(event)">
+        <form>
             <div class="form-group">
                 <label for="name">Họ và tên <span class="required">*</span></label>
                 <input type="text" id="name" name="name" required>
@@ -159,9 +159,6 @@
                 <input type="text" id="binance_id" name="binance_id" placeholder="Nhập ID Binance của bạn">
             </div>
 
-            <div id="form-error" style="color:#ff6b35;font-weight:bold;text-align:center;margin-bottom:10px;display:none"></div>
-            <div id="form-success" style="color:#00ff00;font-weight:bold;text-align:center;margin-bottom:10px;display:none"></div>
-
             <button type="submit" class="submit-btn">
                 🚀 ĐĂNG KÝ NGAY
             </button>
@@ -171,34 +168,5 @@
             <a href="/">← Quay lại trang chủ</a>
         </div>
     </div>
-    <script>
-    function handleRegister(e) {
-        e.preventDefault();
-        var name = document.getElementById('name').value.trim();
-        var email = document.getElementById('email').value.trim();
-        var binanceId = document.getElementById('binance_id').value.trim();
-        var errorDiv = document.getElementById('form-error');
-        var successDiv = document.getElementById('form-success');
-        errorDiv.style.display = 'none';
-        successDiv.style.display = 'none';
-        if (!name || !email) {
-            errorDiv.textContent = 'Vui lòng nhập đầy đủ họ tên và email.';
-            errorDiv.style.display = 'block';
-            return false;
-        }
-        if (binanceId) {
-            errorDiv.textContent = 'Chương trình chỉ dành cho tài khoản Binance đăng ký mới. Vui lòng không nhập ID Binance cũ.';
-            errorDiv.style.display = 'block';
-            return false;
-        } else {
-            successDiv.textContent = 'Bạn sẽ cần đăng ký tài khoản Binance. Sau 5 giây bạn sẽ được chuyển hướng tới Binance.';
-            successDiv.style.display = 'block';
-            setTimeout(function() {
-                window.location.href = 'https://accounts.binance.com/vi/register?ref=195053198';
-            }, 5000);
-            return false;
-        }
-    }
-    </script>
 </body>
 </html> 
