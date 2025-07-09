@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuyển hướng Binance</title>
+    <style>
+        body {
+            background: #000;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .box {
+            background: rgba(0,255,0,0.08);
+            border: 2px solid #00ff00;
+            border-radius: 12px;
+            padding: 40px 30px;
+            text-align: center;
+            max-width: 400px;
+        }
+        .box h2 {
+            color: #f7931a;
+            margin-bottom: 18px;
+        }
+        .box p {
+            font-size: 1.1rem;
+            margin-bottom: 18px;
+        }
+        .box .countdown {
+            font-size: 1.3rem;
+            color: #ff6b35;
+            margin-bottom: 10px;
+        }
+        .box a {
+            color: #00ff00;
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        let seconds = 5;
+        function updateCountdown() {
+            document.getElementById('countdown').textContent = seconds;
+            if (seconds === 0) {
+                window.location.href = 'https://accounts.binance.com/vi/register?ref=195053198';
+            } else {
+                seconds--;
+                setTimeout(updateCountdown, 1000);
+            }
+        }
+        window.onload = updateCountdown;
+    </script>
+</head>
+<body>
+    <div class="box">
+        <h2>Đăng ký tài khoản Binance</h2>
+        <p>Bạn sẽ cần đăng ký tài khoản Binance để tham gia chương trình nhận thưởng đào BTC nhóm.</p>
+        <div class="countdown">Chuyển hướng sau <span id="countdown">5</span> giây...</div>
+        <p>Nếu không tự động chuyển, <a href="https://accounts.binance.com/vi/register?ref=195053198" target="_blank">bấm vào đây</a>.</p>
+    </div>
+</body>
+</html> 

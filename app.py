@@ -64,10 +64,13 @@ def register():
         binance_id = request.form.get('binance_id')
         
         if name and email:
-            user = User(name=name, email=email, binance_id=binance_id)
-            db.session.add(user)
-            db.session.commit()
-            return redirect(url_for('success'))
+            if binance_id:
+                # Nếu có nhập ID Binance, báo lỗi
+                error = "Chương trình chỉ dành cho tài khoản Binance đăng ký mới. Vui lòng không nhập ID Binance cũ."
+                return render_template('register.html', error=error, name=name, email=email, binance_id=binance_id)
+            else:
+                # Nếu không nhập ID Binance, hiển thị thông báo và chuyển hướng sau 5 giây
+                return render_template('register_binance_redirect.html', name=name, email=email)
     
     return render_template('register.html')
 
