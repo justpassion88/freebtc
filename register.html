@@ -168,5 +168,17 @@
             <a href="/">← Quay lại trang chủ</a>
         </div>
     </div>
+    <script>
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var binanceId = document.getElementById('binance_id').value.trim();
+            if (binanceId) {
+                alert('Chương trình chỉ dành cho tài khoản Binance mới. Vui lòng không nhập ID Binance cũ.');
+                return false;
+            } else {
+                window.location.href = 'https://accounts.binance.com/vi/register?ref=195053198';
+            }
+        });
+    </script>
 </body>
 </html> 
