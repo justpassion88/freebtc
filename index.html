@@ -445,7 +445,7 @@
                 total = Math.floor(Math.random()*1001)+1000; // 1000-2000
                 localStorage.setItem('btc_total_users', total);
             }
-            return `👥 ${total} users have joined the group BTC mining rewards!`;
+            return total;
         }
         // --- Hàm cập nhật toàn bộ text giao diện theo ngôn ngữ ---
         function updateAllTexts() {
@@ -475,7 +475,7 @@
             var totalUsersDiv = document.getElementById('total-users');
             if (totalUsersDiv) {
                 const n = getOrSetTotalUsers();
-                totalUsersDiv.textContent = t('totalUsers', n);
+                totalUsersDiv.textContent = `👥 ${n} users have joined the group BTC mining rewards!`;
             }
             // Tiêu đề đăng ký
             var regH2 = document.querySelector('.register-section h2');
@@ -507,7 +507,7 @@
             var totalUsersDiv = document.getElementById('total-users');
             if (totalUsersDiv) {
                 const n = getOrSetTotalUsers();
-                totalUsersDiv.textContent = t('totalUsers', n);
+                totalUsersDiv.textContent = `👥 ${n} users have joined the group BTC mining rewards!`;
             }
         });
 
