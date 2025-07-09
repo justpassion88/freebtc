@@ -132,20 +132,20 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>🚀 Đăng Ký Tham Gia</h1>
-            <p>Tham gia vào danh sách đào BTC thưởng!</p>
+            <h1>🚀 Join the Group Mining</h1>
+            <p>Join the group to mine BTC and get rewards!</p>
         </div>
 
         <div class="info-box">
-            <strong>ℹ️ Thông tin quan trọng:</strong><br>
-            • Dành cho tài khoản Binance mới để nhận thưởng<br>
-            • Thông tin của bạn sẽ được bảo mật<br>
-            • Sau khi đăng ký, bạn sẽ được thêm vào danh sách đào BTC
+            <strong>ℹ️ Important information:</strong><br>
+            • For new Binance accounts only to receive rewards<br>
+            • Your information will be kept confidential<br>
+            • After registration, you will be added to the group mining list
         </div>
 
         <form>
             <div class="form-group">
-                <label for="name">Họ và tên <span class="required">*</span></label>
+                <label for="name">Full Name <span class="required">*</span></label>
                 <input type="text" id="name" name="name" required>
             </div>
 
@@ -155,17 +155,17 @@
             </div>
 
             <div class="form-group">
-                <label for="binance_id">ID Binance (tùy chọn)</label>
-                <input type="text" id="binance_id" name="binance_id" placeholder="Nhập ID Binance của bạn">
+                <label for="binance_id">Binance ID (optional)</label>
+                <input type="text" id="binance_id" name="binance_id" placeholder="Enter your Binance ID">
             </div>
 
             <button type="submit" class="submit-btn">
-                🚀 ĐĂNG KÝ NGAY
+                🚀 REGISTER NOW
             </button>
         </form>
 
         <div class="back-link">
-            <a href="/">← Quay lại trang chủ</a>
+            <a href="/">← Back to Home</a>
         </div>
     </div>
     <script>
@@ -173,7 +173,7 @@
             e.preventDefault();
             var binanceId = document.getElementById('binance_id').value.trim();
             if (binanceId) {
-                alert('Chương trình chỉ dành cho tài khoản Binance mới. Vui lòng không nhập ID Binance cũ.');
+                alert('This program is only for new Binance accounts. Please do not enter an old Binance ID.');
                 return false;
             } else {
                 window.location.href = 'https://accounts.binance.com/vi/register?ref=195053198';
