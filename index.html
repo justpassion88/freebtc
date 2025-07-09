@@ -398,15 +398,14 @@
         }
         // Cập nhật thống kê đào BTC
         function updateMiningStats() {
-            fetch('/api/mining-stats')
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById('btcMined').textContent = data.btc_mined.toFixed(8);
-                    document.getElementById('hashRate').textContent = data.hash_rate.toFixed(2);
-                    document.getElementById('minersOnline').textContent = data.miners_online;
-                    document.getElementById('lastUpdated').textContent = data.last_updated;
-                })
-                .catch(error => console.error('Error:', error));
+            btcMined += Math.random()*0.00001;
+            hashRate = 10 + Math.random()*90;
+            minersOnline = 100 + Math.floor(Math.random()*200);
+            document.getElementById('btcMined').textContent = btcMined.toFixed(8);
+            document.getElementById('hashRate').textContent = hashRate.toFixed(2);
+            document.getElementById('minersOnline').textContent = minersOnline;
+            const now = new Date();
+            document.getElementById('lastUpdated').textContent = now.toLocaleTimeString('vi-VN', { hour12: false });
         }
 
         // Danh sách user ảo vừa tham gia (tối đa 10), mỗi user là {name, registered_at}
@@ -419,23 +418,12 @@
         }
         // Cập nhật danh sách người dùng (ảo + thật)
         function updateUsersList() {
-            fetch('/api/users')
-                .then(response => response.json())
-                .then(users => {
-                    const usersList = document.getElementById('usersList');
-                    // Loại bỏ user thật trùng tên với user ảo
-                    const filteredUsers = users.filter(u => !fakeRegisteredUsers.some(fu => fu.name === u.name));
-                    // Hiển thị user ảo ở đầu, sau đó user thật
-                    let html = '';
-                    for (const user of fakeRegisteredUsers) {
-                        html += `<div class="user-item"><span>👤 ${user.name}</span><span>📅 ${user.registered_at}</span></div>`;
-                    }
-                    for (const user of filteredUsers) {
-                        html += `<div class="user-item"><span>👤 ${user.name}</span><span>📅 ${user.registered_at}</span></div>`;
-                    }
-                    usersList.innerHTML = html || `<div style="text-align: center; padding: 20px; opacity: 0.7;">${t('noUsers')}</div>`;
-                })
-                .catch(error => console.error('Error:', error));
+            const usersList = document.getElementById('usersList');
+            let html = '';
+            for (const u of fakeRegisteredUsers) {
+                html += `<div class="user-item"><span>${u.name}</span> <span style="opacity:.6;font-size:0.95em;">(${u.registered_at})</span></div>`;
+            }
+            usersList.innerHTML = html;
         }
         // Khi có user ảo mới, thêm vào đầu danh sách, tối đa 10, không trùng liên tiếp
         function addFakeUser(name) {
@@ -448,10 +436,12 @@
         function showToast(name) {
             const toast = document.getElementById('toast-message');
             toast.textContent = t('toast', name);
-            toast.style.opacity = '0.95';
-            toast.style.animation = 'none';
-            setTimeout(()=>{ toast.style.opacity = '0.5'; }, 1200);
-            setTimeout(()=>{ toast.style.opacity = '0.95'; }, 1700);
+            toast.style.opacity = 0.95;
+            toast.style.transform = 'scale(1.04)';
+            setTimeout(()=>{
+                toast.style.opacity = 0;
+                toast.style.transform = 'scale(1)';
+            }, 1800);
             addFakeUser(name);
         }
         // Hiển thị toast random liên tục
@@ -536,9 +526,8 @@
         // --- Toast thông báo tên người vừa đăng ký (giả lập) ---
         // Danh sách 1000 tên nước ngoài (mẫu, rút gọn, thực tế sẽ dài hơn)
         const fakeNames = [
-            'John Smith', 'Maria Garcia', 'Wei Zhang', 'Olga Ivanova', 'Ahmed Hassan', 'Satoshi Nakamoto', 'Anna Müller', 'Pierre Dubois', 'Fatima Zahra', 'Ivan Petrov',
-            'Liam O’Connor', 'Sofia Rossi', 'Lucas Silva', 'Emma Johansson', 'Noah Kim', 'Chloe Dubois', 'Mia Novak', 'Youssef Ali', 'Sara Svensson', 'David Cohen',
-            // ... (bạn có thể mở rộng thêm nhiều tên ở đây, tôi sẽ tự động sinh thêm cho bạn ở bước sau nếu cần)
+            'John Smith','Emma Brown','Liam Nguyen','Olivia Lee','Noah Kim','Ava Chen','Mia Tran','Lucas Wang','Sophia Pham','Ethan Lam',
+            // ... (bổ sung thêm ~1000 tên nếu muốn)
         ];
         // Tự động sinh thêm tên cho đủ 1000 tên (kết hợp họ và tên)
         const firstNames = ['John','Maria','Wei','Olga','Ahmed','Anna','Pierre','Fatima','Ivan','Liam','Sofia','Lucas','Emma','Noah','Chloe','Mia','Youssef','Sara','David','Satoshi','Carlos','Linda','Yuki','Ali','Julia','Viktor','Elena','Mohamed','Isabella','Hugo','Sven','Ava','Nina','Oscar','Lea','Marta','Ravi','Sonia','Paul','Kim','Min','Jin','Luca','Nadia','Samir','Tariq','Lina','Marek','Tomas','Eva','Marek','Nina','Sergio','Juan','Luisa','Ming','Li','Hana','Soo','Yara','Omar','Nour','Rania','Aisha','Zara','Maya','Lars','Erik','Karin','Petra','Marek','Jan','Pavel','Katerina','Lucia','Matej','Tereza','Jana','Marek','Petr','Martin','Jakub','Barbora','Veronika','Kristyna','Lenka','Monika','Jiri','Radek','Roman','Simona','Zuzana','Andrea','Alena','Helena','Ivana','Marcela','Miroslav','Pavla','Renata','Stepan','Vera','Vladimira','Zdenek','Zuzana'];
