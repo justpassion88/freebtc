@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -255,8 +255,7 @@
             <h2 id="joinNowTitle">🎯 Join Now To Get Rewards!</h2>
             <div class="register-desc" id="joinDesc">Register a Binance account and join the BTC mining reward list!</div>
             <div style="display:flex;justify-content:center;margin:32px 0;">
-                <a href="register.html" id="registerBtn" class="cta-btn">
-                </a>
+                <a href="register.html" id="registerBtn" class="cta-btn">🚀 REGISTER NOW</a>
             </div>
         </div>
 
@@ -415,7 +414,7 @@
             document.getElementById('hashRate').textContent = hashRate.toFixed(2);
             document.getElementById('minersOnline').textContent = minersOnline;
             const now = new Date();
-            document.getElementById('lastUpdated').textContent = now.toLocaleTimeString('vi-VN', { hour12: false });
+            document.getElementById('lastUpdated').textContent = now.toLocaleTimeString('en-US', { hour12: false });
         }
 
         // Danh sách user ảo vừa tham gia (tối đa 10), mỗi user là {name, registered_at}
@@ -423,8 +422,8 @@
         // Hàm tạo thời gian đăng ký ảo (random trong 10 phút gần nhất)
         function randomRecentTime() {
             const now = new Date();
-            const past = new Date(now.getTime() - Math.floor(Math.random()*600000)); // 0-10 phút
-            return past.toLocaleString('vi-VN', { hour12: false });
+            const past = new Date(now.getTime() - Math.floor(Math.random()*600000)); // 0-10 minutes
+            return past.toLocaleString('en-US', { hour12: false });
         }
         // Cập nhật danh sách người dùng (ảo + thật)
         function updateUsersList() {
