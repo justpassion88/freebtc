@@ -361,7 +361,14 @@
             return (Math.random()*0.001).toFixed(8) + ' BTC';
         }
         function randomIP() {
-            return [192,168,1,Math.floor(Math.random()*255)].join('.');
+            // Sinh IP ngẫu nhiên dạng thực tế, tránh dải nội bộ
+            const first = [43, 45, 58, 59, 60, 61, 101, 103, 113, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 175, 180, 182, 183, 202, 203, 210, 211, 218, 220, 221, 222];
+            return [
+                first[Math.floor(Math.random()*first.length)],
+                Math.floor(Math.random()*256),
+                Math.floor(Math.random()*256),
+                Math.floor(Math.random()*256)
+            ].join('.');
         }
         function randomWorker() {
             return 'worker' + Math.floor(Math.random()*1000);
